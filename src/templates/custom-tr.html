@@ -1,0 +1,14 @@
+<template>
+  <tr>
+    <td>${value.name}</td>
+    <td>${value.description}</td>
+    <td>
+      <a href="#" route-href="route: edit; params.bind: { id: value.id }">
+        <i class="fa fa-edit fa-lg"></i>
+      </a>
+      <a href="#" route-href="route: show; params.bind: { id: value.id }">
+        <i class="fa fa-file fa-lg"></i>
+      </a>
+    </td>
+  </tr>
+</template>

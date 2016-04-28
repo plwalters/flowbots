@@ -1,0 +1,35 @@
+<template>
+  <require from="face/templates/face.css"></require>
+  <require from="face/templates/left-eye"></require>
+  <require from="face/templates/right-eye"></require>
+  <require from="face/templates/mouth"></require>
+  <require from="resources/available"></require>
+  <div if.bind="isTalking"></div>
+  <div class="col-md-4 col-sm-4">
+    <svg class="face" height="350" width="300" xmlns="http://www.w3.org/2000/svg" click.delegate="toggleActive()">
+      <left-eye left-eye.ref="leftEye"></left-eye>
+      <right-eye right-eye.ref="rightEye"></right-eye>
+      <mouth mouth.ref="mouth"></mouth>
+    </svg>
+
+    <div class="row hearing">
+      <div class="col-sm-12">
+        <i class="fa fa-feed"></i>
+        <span class="pull-right">${displayText}</span>
+      </div>
+    </div>
+
+    <div with.bind="currentFlow" class="row">
+      <ul class="list-unstyled" if.bind="activeAction">
+        <li repeat.for="action of actions | available:activeAction" click.delegate="selectTrigger(action)" class="available-actions col-sm-6">
+          ${action}
+        </li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <button class="col-sm-6 btn btn-danger" click.trigger="resetAllState()">Reset all state</button>
+      <button class="col-sm-6 btn btn-warning" click.trigger="resetState()">Reset state</button>
+    </div>
+  </div>
+</template>

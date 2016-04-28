@@ -1,0 +1,19 @@
+<template>
+  <require from="flows/components/edit-action"></require>
+  <form with.bind="value">
+    <div class="row">
+      <input value.bind="trigger" />
+      <select value.bind="selectedAction">
+        <option>Choose action...</option>
+        <option repeat.for="action of actions" model.bind="action">${action.name}</option>
+      </select>
+    </div>
+    <div class="row">
+      <button click.delegate="$parent.createAction()">Create new action</button>
+      <button click.delegate="$parent.editAction()">Edit action</button>
+    </div>
+  </form>
+  <div if.bind="actionToEdit">
+    <edit-action value.bind="actionToEdit" save-callback.call="actionToEditSaved()"></edit-action>
+  </div>
+</template>

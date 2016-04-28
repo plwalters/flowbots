@@ -1,0 +1,26 @@
+<template>
+  <form with.bind="value">
+    <div class="row">
+      <label>
+        <span>Id: <strong>${id}</strong></span>
+      </label>
+      <label>
+        <span>Name: </span>
+        <input value.bind="name" />
+      </label>
+      <label>
+        <span>Message: </span>
+        <input value.bind="message" />
+      </label>
+      <label>
+        <span>Next Action Id: </span>
+        <input value.bind="nextActionId" />
+      </label>
+      <select value.bind="command">
+        <option>Choose command...</option>
+        <option repeat.for="command of $parent.availableCommands" model.bind="command">${command.name}</option>
+      </select>
+    </div>
+    <button class="btn btn-success" click.delegate="$parent.save()">Save</button>
+  </form>
+</template>

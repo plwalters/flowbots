@@ -1,0 +1,13 @@
+<template>
+  <div class="row" with.bind="value">
+    <div class="col-xs-9">
+      <h5>${value.name}</h5>
+      <h5>${value.description}</h5>
+    </div>
+    <div class="col-xs-9">
+      <a href="#" route-href="route: edit; params.bind: { id: value.id }">
+        <i class="fa fa-edit fa-lg"></i>
+      </a>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,10 @@
+<template>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="templates/left-nav"></require>
+
+  <left-nav router.bind="router" view-model.ref="leftNav"></left-nav>
+
+  <div id="page-content-wrapper">
+    <router-view class="container-fluid"></router-view>
+  </div>
+</template>

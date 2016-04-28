@@ -1,0 +1,30 @@
+<template>
+  <require from="templates/custom-tr"></require>
+  <div class="row">
+    <div class="col-xs-6">
+      <h2>Flows' List View</h2>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        value.bind="flow"
+        repeat.for="flow of session.flows"
+        as-element="custom-tr"
+        router.bind="router">
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-xs-3">
+      <button click.delegate="saveAllFlows()">Save all Flows</button>
+    </div>
+  </div>
+</template>

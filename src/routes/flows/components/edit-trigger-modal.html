@@ -1,0 +1,15 @@
+<template>
+  <require from="flows/components/edit-trigger"></require>
+  <ai-dialog>
+    <ai-dialog-header>
+      <h5>Edit Trigger</h5>
+    </ai-dialog-header>
+    <ai-dialog-body>
+      <edit-trigger value.bind="value" actions.bind="actions" can-save.bind="canSave"></edit-trigger>
+    </ai-dialog-body>
+    <ai-dialog-footer>
+      <button click.trigger="controller.cancel()">Cancel</button>
+      <button click.trigger="save()">Save</button>
+    </ai-dialog-footer>
+  </ai-dialog>
+</template>

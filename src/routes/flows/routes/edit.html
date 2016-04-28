@@ -1,0 +1,45 @@
+<template>
+  <require from="flows/components/flow-action"></require>
+  <require from="flows/components/flow-details"></require>
+  <h2>Flow Edit View</h2>
+  <div class="row">
+    <form with.bind="value" class="col-xs-4">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" value.bind="name" class="form-control" placeholder="Name" />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea value.bind="description" class="form-control" placeholder="Description"></textarea>
+      </div>
+      <button class="btn btn-success" click.delegate="$parent.save()">Save</button>
+      <a href="#" class="btn btn-warning" route-href="route: list">
+        Cancel
+      </a>
+      <button class="btn btn-danger" click.delegate="$parent.delete()">Delete</button>
+      <div class="row">
+        <flow-details repeat.for="flow of flows" value.bind="flow"></flow-details>
+        <div class="row">
+          <button click.delegate="createFlow($parent.value)">Add new flow</button>
+        </div>
+      </div>
+    </form>
+    <div class="col-xs-8">
+      <h3>Flow</h3>
+      <strong>Trigger</strong> => action name
+      <hr />
+      <div if.bind="rootAction">
+        <flow-action trigger.bind="rootAction.name" value.bind="rootAction"></flow-action>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <h3>All actions</h3>
+      <ul repeat.for="action of value.actions">
+        <li>
+          ${action.name}
+          <a href="#" click.delegate="$parent.deleteAction(action)"><i class="fa fa-close"></i></a>
+        </li>
+      </div>
+    </div>
+  </div>
+</template>

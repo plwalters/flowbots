@@ -1,0 +1,55 @@
+<template>
+  <require from="resources/create-trigger"></require>
+  <require from="resources/move-all-children"></require>
+  <require from="resources/filter-parents"></require>
+  <style>
+    .test {
+      border: 1px solid grey;
+      border-radius: 3px;
+      padding-left: 4px;
+      padding-right: 4px;
+      cursor: pointer;
+    }
+    .piece {
+      border-right: 1px solid black;
+      padding-right: 10px;
+      padding-left: 5px;
+    }
+    .list-unstyled {
+      margin-left: 25px;
+    }
+  </style>
+  <div class="test">
+    <div click.delegate="toggleOpen()">
+      <a class="piece">
+        <i class="fa fa-chevron-${ isOpen ? 'down' : 'right' }"></i>
+      </a>
+      <strong class="piece">${trigger}</strong>
+      <span class="piece">${value.name}</span>
+      <span class="piece">${value.command.name}</span>
+    </div>
+    <a href="#" class="btn btn-default" click.delegate="addTrigger()" title="Add a new Trigger">
+      <i class="fa fa-plus"></i>
+    </a>
+    <a href="#" class="btn btn-default" click.delegate="editTrigger()" title="Edit this Trigger">
+      <i class="fa fa-edit"></i>
+    </a>
+    <a href="#" class="btn btn-default" click.trigger="deleteTrigger()" title="Delete this Trigger">
+      <i class="fa fa-close"></i>
+    </a>
+    <a href="#" class="btn btn-default" click.trigger="clearAllTriggers()" title="Clear all Triggers">
+      <i class="fa fa-stop-circle"></i>
+    </a>
+    <a create-trigger.bind="value" class="btn btn-default" title="Remove all Triggers">
+      <i class="fa fa-arrow-circle-right"></i>
+    </a>
+    <a move-all-children.bind="value" class="btn btn-default" title="Move all nested Triggers">
+      <i class="fa fa-arrow-down"></i>
+    </a>
+  </div>
+  <ul show.bind="isOpen" class="list-unstyled">
+    <li repeat.for="nextAction of availableActions | filterParents:parent">
+      <flow-action parent.bind="$parent" trigger.bind="nextAction.name" value.bind="nextAction.value"></flow-action>
+    </li>
+  </ul>
+</template>

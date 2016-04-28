@@ -1,0 +1,22 @@
+.face {
+  background:blue;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+}
+.hearing {
+  background: black;
+  border: 1px solid lightgray;
+  color: grey;
+  line-height: 36px;
+  font-weight: bold;
+  .fa-feed {
+    margin-right: 10px;
+  }
+}
+.available-actions {
+  background: grey;
+  font-weight: bold;
+  line-height: 30px;
+  border: 2px solid black;
+  text-align: center;
+}

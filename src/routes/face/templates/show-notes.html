@@ -1,0 +1,7 @@
+<template>
+  <ul if.bind="session.showingNotes">
+    <li repeat.for="note of session.notes">
+      ${note.message}
+    </li>
+  </ul>
+</template>

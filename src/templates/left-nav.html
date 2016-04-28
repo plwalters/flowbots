@@ -1,0 +1,20 @@
+<template>
+  <require from="./left-nav.css"></require>
+  <div id="sidebar-wrapper" show.bind="isShowing" class="hidden-xs hidden-sm">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a href="#">
+          Assistant
+        </a>
+      </li>
+      <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+        <a data-toggle="collapse" data-target="#skeleton-navigation-navbar-collapse.in" href.bind="row.href">${row.title}</a>
+        <ul class="subroutes-nav" show.bind="row.isActive">
+          <li repeat.for="subroute of subRoutes" class="${subroute.isActive ? 'active' : ''}">
+            <a data-toggle="collapse" data-target="#skeleton-navigation-navbar-collapse.in" href.bind="subroute.href">${subroute.title}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</template>
