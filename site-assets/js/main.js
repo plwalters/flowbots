@@ -302,7 +302,7 @@ offset = - $('.navbar-header').height();
 
     $body.addClass('is-site-bg-slideshow');
     for (var i = 1; i <= _bg_slideshow_image_amount; i++) {
-      $siteBgImg.append('<img src="assets/img/bg/site-bg-slideshow-' + (i < 10 ? '0' + i : i) + '.jpg">');
+      $siteBgImg.append('<img src="site-assets/img/bg/site-bg-slideshow-' + (i < 10 ? '0' + i : i) + '.jpg">');
     }
 
     if (isMobile) {
@@ -348,7 +348,7 @@ offset = - $('.navbar-header').height();
     $body.addClass('is-site-bg-video');
 
     $video.append('<video id="bgVideo" autoplay loop>' +
-                  '<source src="assets/video/video.mp4" type="video/mp4">' +
+                  '<source src="site-assets/video/video.mp4" type="video/mp4">' +
                   '</video>');
 
     var bgVideo = document.getElementById('bgVideo');
@@ -408,7 +408,7 @@ offset = - $('.navbar-header').height();
   function fn_siteBgAudio() {
     if (_bg_style_mobile == 1 || _bg_style_mobile == 3 || _bg_style_mobile == 5 || _bg_style_mobile == 7 || _bg_style_desktop == 1 || _bg_style_desktop == 3 || _bg_style_desktop == 5 || _bg_style_desktop == 7 || _bg_style_desktop == 10 || _bg_style_desktop == 13) {
       $body.append('<audio id="audioPlayer" loop>' +
-                   '<source src="assets/audio/audio.mp3" type="audio/mpeg">' +
+                   '<source src="site-assets/audio/audio.mp3" type="audio/mpeg">' +
                    '</audio>');
     }
 

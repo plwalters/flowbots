@@ -102,7 +102,7 @@ function initialize() {
 
       var map = new google.maps.Map(mapCanvas, mapOptions);
 
-      var image = 'assets/img/item/map-marker.png';
+      var image = 'site-assets/img/item/map-marker.png';
       var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
