@@ -207,7 +207,7 @@ offset = - $('.navbar-header').height();
       submitHandler: function(form) {
         $(form).ajaxSubmit({
           type: 'POST',
-          url: 'assets/php/contact.php',
+          url: 'site-assets/php/contact.php',
           dataType: 'json',
           cache: false,
           data: $form.serialize(),
